@@ -1,4 +1,5 @@
-<%@page import="kr.co.jboard.bean.MemberBean"%>
+<%@page import="kr.co.jboard1.bean.MemberBean"%>
+<%@page import="kr.co.jboard1.config.DBConfig"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -9,16 +10,7 @@
 	String uid  = request.getParameter("uid");
 	String pass = request.getParameter("pass");
 	
-	// DB정보
-	String host = "jdbc:mysql://192.168.44.46:3306/kdw";
-	String user = "kdw";
-	String pw = "1234";
-	
-	// 1단계
-	Class.forName("com.mysql.jdbc.Driver");
-	
-	// 2단계
-	Connection conn = DriverManager.getConnection(host, user, pw);
+	Connection conn = DBConfig.getConnection();
 	
 	// 3단계
 	Statement stmt = conn.createStatement();

@@ -1,4 +1,4 @@
-<%@ page import="kr.co.jboard.bean.MemberBean"%>
+<%@ page import="kr.co.jboard1.bean.MemberBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%	
 	// 세션에 저장된 사용자 정보객체 존재여부 확인
