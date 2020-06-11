@@ -6,17 +6,21 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	
-	String seq = request.getParameter("seq");
-
+	String seq	   = request.getParameter("seq");
+	String parent  = request.getParameter("parent");
+	
 	// 1, 2단계
 	Connection conn = DBConfig.getConnection();
 	
 	// 3단계
-	PreparedStatement psmt = conn.prepareStatement(SQL.DELETE_ARTICLE);
+	PreparedStatement psmtCount = conn.prepareStatement(SQL.DELETE_COMMENT_COUNT);
+	psmtCount.setString(1, parent);
+	
+	PreparedStatement psmt = conn.prepareStatement(SQL.DELETE_COMMENT);
 	psmt.setString(1, seq);
-	psmt.setString(2, seq);
 	
 	// 4단계
+	psmtCount.executeUpdate();
 	psmt.executeUpdate();
 	
 	// 5단계
@@ -25,5 +29,5 @@
 	conn.close();
 	
 	// 리다이렉트
-	response.sendRedirect("/Jboard1/list.jsp");
+	response.sendRedirect("/Jboard1/view.jsp?seq="+parent);
 %>

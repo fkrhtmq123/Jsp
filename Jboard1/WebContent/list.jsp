@@ -134,7 +134,7 @@
                 <% } %>
                 
                 <% for(int i=groupStart; i<=groupEnd; i++) { %>
-                <a href="/Jboard1/list.jsp?pg=<%= i %>" class="num"><%= i %></a>                
+                <a href="/Jboard1/list.jsp?pg=<%= i %>" class="num <%= (currentPg == i) ? "current":"" %>"><%= i %></a>                
                 <% } %>
                 
                 <% if(groupEnd < lastPage) { %>               
@@ -143,8 +143,9 @@
             </div>
 
             <!-- 글쓰기 버튼 -->
+            <% if(mb.getGrade() > 2) { %>
             <a href="/Jboard1/write.jsp" class="btnWrite">글쓰기</a>
-
+			<% } %>
         </section>
     </div>    
 </body>

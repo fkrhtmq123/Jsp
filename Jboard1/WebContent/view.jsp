@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="kr.co.jboard1.bean.ArticleBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="kr.co.jboard1.config.SQL"%>
@@ -15,6 +17,7 @@
 		return;
 	}
 	
+	// 파라미터 수신
 	request.setCharacterEncoding("UTF-8");
 	String seq = request.getParameter("seq");
 	//int num = Integer.parseInt(seq); -> psmt.setInt(1, num);
@@ -29,9 +32,13 @@
 	PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_ARTICLE);
 	psmt.setString(1, seq);
 	
+	PreparedStatement psmtComment = conn.prepareStatement(SQL.SELECT_COMMENTS);
+	psmtComment.setString(1, seq);
+	
 	// 4단계
 	psmtHit.executeUpdate();
 	ResultSet rs =  psmt.executeQuery();
+	ResultSet rsComment = psmtComment.executeQuery();
 	
 	// 5단계
 	ArticleBean article = new ArticleBean();
@@ -51,11 +58,30 @@
 		
 	}
 	
+	List<ArticleBean> comments = new ArrayList<>();
+	while(rsComment.next()) {
+		ArticleBean comment = new ArticleBean();
+		
+		comment.setSeq(rsComment.getInt(1));
+		comment.setContent(rsComment.getString(6));
+		comment.setUid(rsComment.getString(9));
+		comment.setRegip(rsComment.getString(10));
+		comment.setRdate(rsComment.getString(11));
+		comment.setNick(rsComment.getString(12));
+		
+		comments.add(comment);
+	}
+	
 	// 6단계
+	rsComment.close();
+	psmtComment.close();
 	psmtHit.close();
 	rs.close();
 	psmt.close();
 	conn.close();
+	
+	// 수정을 대비하기 위한 article객체 세션에 저장
+	session.setAttribute("article", article);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,27 +128,41 @@
             	}
             </script>
             <div>
+            	<% 
+            		if(mb.getUid().equals(article.getUid())) { 
+            	%>
                 <a href="/Jboard1/proc/delete.jsp?seq=<%= article.getSeq() %>" onclick="return onDelete()" class="btnDelete">삭제</a>
                 <a href="/Jboard1/modify.jsp" class="btnModify">수정</a>
+                <% 
+                	} 
+                %>
                 <a href="/Jboard1/list.jsp" class="btnList">목록</a>
             </div>  
             
             <!-- 댓글리스트 -->
             <section class="commentList">
                 <h3>댓글목록</h3>
-                <% if(article.getComment() > 0) { %>
+                <% for(ArticleBean comment : comments) { %>
                 <article class="comment">
                     <span>
-                        <span>길동이</span>
-                        <span>20-05-13</span>
+                        <span><%= comment.getNick() %></span>
+                        <span><%= comment.getRdate().substring(2, 10) %></span>
                     </span>
-                    <textarea name="comment" readonly>댓글 샘플입니다.</textarea>
+                    <textarea name="comment" readonly><%= comment.getContent() %></textarea>
                     <div>
-                        <a href="#">삭제</a>
+                    	<%
+                    		if(mb.getUid().equals(comment.getUid())) {
+                    	%>
+                        <a href="/Jboard1/proc/deleteComment.jsp?seq=<%= comment.getSeq() %>&parent=<%= article.getSeq() %>">삭제</a>
                         <a href="#">수정</a>
+                        <% } %>
                     </div>
                 </article>
-                <% } else { %>
+                <% 
+                	}
+                	
+                	if(comments.size() == 0) {
+                %>
                 <p class="empty">등록된 댓글이 없습니다.</p>
                 <% } %>
             </section>
