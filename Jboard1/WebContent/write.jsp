@@ -20,7 +20,7 @@
         <section id="board" class="write">
             <h3>글쓰기</h3>
             <article>
-                <form action="/Jboard1/proc/write.jsp">
+                <form action="/Jboard1/proc/write.jsp" method="post" enctype="multipart/form-data">
                 	<input type="hidden" name="uid" value="<%= mb.getUid() %>" />
                     <table>
                         <tr>
@@ -39,7 +39,7 @@
                         </tr>
                     </table>
                     <div>
-                        <a href="/Jboard1/list.jsp class="btnCancel">취소</a>
+                        <a href="/Jboard1/list.jsp" class="btnCancel">취소</a>
                         <input type="submit"  class="btnWrite" value="작성완료">
                     </div>
                 </form>
