@@ -12,7 +12,7 @@
 	// 세션 체크 및 사용자 정보객체 구하기
 	MemberBean mb = (MemberBean) session.getAttribute("member");
 
-	if(mb == null) {
+	if(mb == null) { 
 		response.sendRedirect("/Jboard1/user/login.jsp");
 		return; // 아래 로직실행을 못하게 프로그램을 여기서 종료
 	}
