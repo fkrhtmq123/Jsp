@@ -65,7 +65,7 @@
 		bis.close();
 		
 	} catch(Exception e) {
-		response.sendRedirect("/Jboard1/error/fileNotFound.jsp?seq="+parent);
+		response.sendRedirect("/Jboard1/view.jsp?seq="+parent+"&download=fail");
 		return;
 	}
 	
