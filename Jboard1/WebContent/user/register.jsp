@@ -5,6 +5,20 @@
     <meta charset="UTF-8">
     <title>회원가입</title>
     <link rel="stylesheet" href="/Jboard1/css/style.css"/>
+    
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/Jboard1/js/checkUid.js"></script>
+    <script src="/Jboard1/js/checkPassword.js"></script>
+    <script src="/Jboard1/js/checkName.js"></script>
+    <script src="/Jboard1/js/checkNick.js"></script>
+    <script src="/Jboard1/js/validation.js"></script>
+    <%--<script src="/Jboard1/js/checkHp.js"></script>--%>
+    <script src="/Jboard1/js/checkEmail.js"></script>
+    <script src="/Jboard1/js/zipcode.js"></script>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
     <div id="wrapper">
@@ -15,21 +29,22 @@
                     <tr>
                         <td>아이디</td>
                         <td>
-                            <input type="text" name="uid" placeholder="아이디 입력"/>
-                            <span class="resultId"></span>
+                            <input type="text" name="uid" placeholder="아이디 입력" required="required"/>
+                            <span class="resultId">&nbsp;</span>
                         </td>
                     </tr>
                     <tr>
                         <td>비밀번호</td>
                         <td>
-                            <input type="password" name="pass1" placeholder="비밀번호 입력"/>                            
+                            <input type="password" name="pass1" placeholder="비밀번호 입력"/>
+                            <span class="resultPass1"></span>                         
                         </td>
                     </tr>
                     <tr>
                         <td>비밀번호 확인</td>
                         <td>
                             <input type="password" name="pass2" placeholder="비밀번호 확인 입력"/>
-                            <span class="resultPass"></span>
+                            <span class="resultPass2"></span>
                         </td>
                     </tr>
                 </table>
@@ -53,26 +68,28 @@
                         <td>E-Mail</td>
                         <td>
                             <input type="email" name="email" placeholder="이메일 입력"/>
+                            <span class="resultEmail"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>휴대폰</td>
                         <td>
                             <input type="text" name="hp" placeholder="- 포함 13자리 입력" minlength="13" maxlength="13" />
+                            <span class="resultHp"></span>  
                         </td>
                     </tr>
                     <tr>
                         <td>주소</td>
                         <td>
                             <div>
-                                <input type="text" name="zip" placeholder="우편번호" readonly/>
-                                <button class="btnZip">주소검색</button>
+                                <input id="zip" type="text" name="zip" placeholder="우편번호" readonly/>
+                                <button type="button" class="btnZip" onclick="zipcode()">주소검색</button>
                             </div>                            
                             <div>
-                                <input type="text" name="addr1" placeholder="주소를 검색하세요." readonly/>
+                                <input id="addr1" type="text" name="addr1" placeholder="주소를 검색하세요." readonly/>
                             </div>
                             <div>
-                                <input type="text" name="addr2" placeholder="상세주소를 입력하세요."/>
+                                <input id="addr2" type="text" name="addr2" placeholder="상세주소를 입력하세요."/>
                             </div>
                         </td>
                     </tr>

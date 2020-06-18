@@ -19,6 +19,21 @@ public class SQL {
 												+ "`regip`=?, "
 												+ "`rdate`=NOW()";
 	
+	public final static String SELECT_CHECK_UID = "SELECT COUNT(`uid`) FROM `JBOARD_MEMBER` "
+													+ "WHERE `uid`=?";
+	
+	public final static String SELECT_CHECK_PASS = "SELECT COUNT(`pass`) FROM `JBOARD_MEMBER` "
+													+ "WHERE `pass`=?";
+	
+	public final static String SELECT_CHECK_NICK = "SELECT COUNT(`nick`) FROM `JBOARD_MEMBER` "
+													+ "WHERE `nick`=?";
+	
+	public final static String SELECT_CHECK_HP = "SELECT COUNT(`hp`) FROM `JBOARD_MEMBER` "
+													+ "WHERE `hp`=?";
+	
+	public final static String SELECT_CHECK_EMAIL = "SELECT COUNT(`email`) FROM `JBOARD_MEMBER` "
+													+ "WHERE `email`=?";
+		
 	// 게시문 관련
 	public final static String SELECT_TOTAL_COUNT = "SELECT COUNT(`seq`) FROM `JBOARD_ARTICLE` "
 													+ "WHERE `parent`=0";
