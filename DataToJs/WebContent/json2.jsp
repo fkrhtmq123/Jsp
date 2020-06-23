@@ -11,7 +11,7 @@
 	// DB에서 데이터 가져오기
 	Connection conn = DBConfig.getConnection();
 	Statement stmt = conn.createStatement();
-	ResultSet rs = stmt.executeQuery("SELECT * FROM `MEMBER`");
+	ResultSet rs = stmt.executeQuery("SELECT * FROM `MEMBER` ORDER BY `rdate` ASC");
 	
 	List<MemberBean> memberList = new ArrayList<>();
 	
