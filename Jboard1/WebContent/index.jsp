@@ -5,7 +5,7 @@
 	MemberBean mb = (MemberBean) session.getAttribute("member");	
 
 	if(mb == null) {
-		// 로그인을 안했을 때
+		// 로그인을 안했을 때 
 		pageContext.forward("./user/login.jsp");
 	} else {
 		// 로그인을 했을 때
