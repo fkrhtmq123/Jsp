@@ -38,7 +38,7 @@ public class SQL {
 		
 	// �Խù� ����
 	public final static String SELECT_TOTAL_COUNT = "SELECT COUNT(`seq`) FROM `JBOARD_ARTICLE` "
-													+ "WHERE `parent`=0";
+													+ "WHERE `parent`=0 AND `cate`=?";
 	
 	public final static String UPDATE_ARTICLE = "UPDATE `JBOARD_ARTICLE` SET `title`=?, `content`=? "
 												+ "WHERE `seq`=?";
@@ -57,13 +57,14 @@ public class SQL {
 	public final static String SELECT_ARTICLES = "SELECT a.*,b.nick FROM `JBOARD_ARTICLE` AS a "
 												+ "JOIN `JBOARD_MEMBER` AS b "
 												+ "ON a.uid = b.uid " 
-												+ "WHERE `parent`=0 "
+												+ "WHERE `parent`=0 AND `cate`=? "
 												+ "ORDER BY `seq` DESC "
 												+ "LIMIT ?, 10";
 	
 	public final static String SELECT_ARTICLE_MAX_SEQ = "SELECT MAX(`seq`) FROM `JBOARD_ARTICLE`";
 	
 	public final static String INSERT_ARTICLE = "INSERT INTO `JBOARD_ARTICLE` SET "
+												+ "`cate`=?, "
 												+ "`title`=?, "
 												+ "`content`=?, "
 												+ "`file`=?, "
@@ -90,6 +91,7 @@ public class SQL {
 	
 	public final static String INSERT_COMMENT = "INSERT INTO `JBOARD_ARTICLE` SET "
 												+ "`parent`=?, "
+												+ "`cate`=?, "
 												+ "`content`=?, "
 												+ "`uid`=?, "
 												+ "`regip`=?, "
