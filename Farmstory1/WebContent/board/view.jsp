@@ -100,6 +100,12 @@
 	// 수정을 대비하기 위한 article객체 세션에 저장
 	session.setAttribute("article", article);
 %>
+<script>
+	$('#summernote').summernote({
+		  codeviewFilter: false,
+		  codeviewIframeFilter: true
+		});
+</script>
 <jsp:include page="<%= asideFile %>">
 	<jsp:param value="<%= cate %>" name="cate"/>
 </jsp:include>
@@ -133,7 +139,7 @@
         <tr>
             <td>내용</td>
             <td>
-                <textarea name="content" readonly><%= article.getContent() %></textarea>
+                <textarea id="summernote" name="content" readonly><%= article.getContent() %></textarea>
             </td>
         </tr>
     </table>

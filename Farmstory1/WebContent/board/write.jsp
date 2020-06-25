@@ -11,6 +11,14 @@
 		return;
 	}
 %>
+<script>
+	$(document).ready(function(){
+		$('#summernote').summernote({
+			height:300,
+			readonly: true
+		});
+	});
+</script>
 <jsp:include page="<%= asideFile %>">
 	<jsp:param value="<%= cate %>" name="cate"/>
 </jsp:include>
