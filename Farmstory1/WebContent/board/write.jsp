@@ -29,7 +29,7 @@
 	                <tr>
 	                    <td>내용</td>
 	                    <td>
-	                        <textarea name="content"></textarea>                                
+	                        <textarea id="summernote" name="content"></textarea>                                
 	                    </td>
 	                </tr>
 	                <tr>

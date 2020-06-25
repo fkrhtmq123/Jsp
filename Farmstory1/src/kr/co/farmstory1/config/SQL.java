@@ -2,7 +2,7 @@ package kr.co.farmstory1.config;
 
 public class SQL {
 	
-	// ȸ�� ����
+	// 회원 관련
 	public final static String SELECT_TERMS = "SELECT * FROM `JBOARD_TERMS`";
 	
 	public final static String SELECT_LOGIN = "SELECT * FROM `JBOARD_MEMBER` "
@@ -36,7 +36,13 @@ public class SQL {
 	public final static String SELECT_CHECK_EMAIL = "SELECT COUNT(`email`) FROM `JBOARD_MEMBER` "
 													+ "WHERE `email`=?";
 		
-	// �Խù� ����
+	// 게시물 관련
+	public final static String SELECT_LATEST_ARTICLE = "(SELECT `seq`, `title`, `rdate` FROM `JBOARD_ARTICLE` WHERE `cate`='grow' AND `parent`=0 ORDER BY `seq` DESC LIMIT 5) "
+														+ "UNION"
+														+ "(SELECT `seq`, `title`, `rdate` FROM `JBOARD_ARTICLE` WHERE `cate`='school' AND `parent`=0 ORDER BY `seq` DESC LIMIT 5) "
+														+ "UNION"
+														+ "(SELECT `seq`, `title`, `rdate` FROM `JBOARD_ARTICLE` WHERE `cate`='croptalk' AND `parent`=0 ORDER BY `seq` DESC LIMIT 5)";
+	
 	public final static String SELECT_TOTAL_COUNT = "SELECT COUNT(`seq`) FROM `JBOARD_ARTICLE` "
 													+ "WHERE `parent`=0 AND `cate`=?";
 	
