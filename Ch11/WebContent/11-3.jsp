@@ -43,6 +43,7 @@
 		<li>num1 ne num2 = ${num1 ne num2}</li></br>
 		
 		<li>empty str1 = ${empty str1}</li>
+		<li>not empty str1 = ${not empty str1}</li>
 		<li>empty str2 = ${empty str2}</li>
 		<li>empty str3 = ${empty str3}</li>
 		<li>str3 eq "Hello" = ${str3 eq "Hello"}</li>
