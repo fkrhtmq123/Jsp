@@ -10,7 +10,7 @@
 <%@page import="kr.co.jboard1.bean.MemberBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	//세션 체크 및 사용자 정보객체 구하기
+	//세션 체크 및 사용자 정보객체 구하기 
 	MemberBean mb = (MemberBean) session.getAttribute("member");
 
 	if(mb == null) {
@@ -179,8 +179,8 @@
                     	<%
                     		if(mb.getUid().equals(comment.getUid())) {
                     	%>
-                        <a href="/Jboard1/proc/deleteComment.jsp?seq=<%= comment.getSeq() %>&parent=<%= article.getSeq() %>">삭제</a>
-                        <a href="#">수정</a>
+                        	<a href="/Jboard1/proc/deleteComment.jsp?seq=<%= comment.getSeq() %>&parent=<%= article.getSeq() %>">삭제</a>
+                        	<a href="#">수정</a>
                         <% } %>
                     </div>
                 </article>
