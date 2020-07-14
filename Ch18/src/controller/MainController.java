@@ -37,9 +37,9 @@ public class MainController extends HttpServlet {
 		try {
 			// 프로퍼티 파일과 입력 스트림 연결
 			FileInputStream fis = new FileInputStream(path);
-			// 입렵 스트립으로 프로퍼티 파일 읽어서 prop객체 key-Map 구조로 저장
+			// 입력 스트림으로 프로퍼티 파일 읽어서 prop객체 key-Map 구조로 저장
 			prop.load(fis);
-			// 입렵 스트림 해제
+			// 입력 스트림 해제
 			fis.close();
 		} catch (Exception e) {
 			e.printStackTrace();

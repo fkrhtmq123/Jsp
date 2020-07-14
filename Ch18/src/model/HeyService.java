@@ -10,7 +10,7 @@ public class HeyService implements CommonService {
 
 	@Override
 	public String requestProc(HttpServletRequest req, HttpServletResponse resp)  throws ServletException, IOException {
-		return "hey.jsp";
+		return "/hey.jsp";
 	}
 
 }
