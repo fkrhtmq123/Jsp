@@ -29,7 +29,7 @@
   
   <servlet-mapping>
   	<servlet-name>Greeting</servlet-name>
-  	<url-pattern>/Greeting.do</url-pattern>
+  	<url-pattern>/greeting.do</url-pattern>
   </servlet-mapping>
   
 </web-app>
