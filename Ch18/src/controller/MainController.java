@@ -82,30 +82,36 @@ public class MainController extends HttpServlet {
 		String action = uri.substring(path.length()); // -> /hello.do
 		
 		CommonService instance = (CommonService) instances.get(action);
-		String view = instance.requestProc(req, resp);
+		String result = instance.requestProc(req, resp);
+		
+		if(result.startsWith("redirect:")) {
+			// 리다이렉트
+			String redirectURL = result.substring(9);
+			resp.sendRedirect(redirectURL);
+		} else {
+			// View 포워드
+			RequestDispatcher dispatcher =  req.getRequestDispatcher(result);
+			dispatcher.forward(req, resp);
+		}
 		
 		/*
 		if(action.equals("/hello.do")) {
 			
 			CommonService service = new HelloService();
-			view = service.requestProc(req, resp);
+			result = service.requestProc(req, resp);
 			
 		} else if (action.equals("/welcome.do")) {
 			
 			CommonService service = new WelcomeService();
-			view = service.requestProc(req, resp);
+			result = service.requestProc(req, resp);
 			
 		} else if (action.equals("/greeting.do")) {
 			
 			CommonService service = new GreetingService();
-			view = service.requestProc(req, resp);
+			result = service.requestProc(req, resp);
 			
 		}
 		*/
-		
-		//view 포인트
-		RequestDispatcher dispatcher =  req.getRequestDispatcher(view);
-		dispatcher.forward(req, resp);
 		
 	}
 	
