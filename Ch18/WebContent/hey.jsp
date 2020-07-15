@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <title>hey</title>
 </head>
-<body>
+<body> 
 	<h1>Hey!!!</h1>
 	<a href="/Ch18/hello.do">hello</a>
 	<a href="/Ch18/greeting.do">greeting</a>
