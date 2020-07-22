@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>글수정</title>
-    <link rel="stylesheet" href="./css/style.css"/>
+    <link rel="stylesheet" href="/Jboard2/css/style.css"/>
 </head>
 <body>
     <div id="wrapper">
         <section id="board" class="modify">
             <h3>글수정</h3>
             <article>
-                <form action="#">
+                <form action="/Jboard2/modify.do">
                     <table>
                         <tr>
                             <td>제목</td>
@@ -29,7 +29,7 @@
                         </tr>
                     </table>
                     <div>
-                        <a href="./list.html" class="btnCancel">취소</a>
+                        <a href="/Jboard2/list.do" class="btnCancel">취소</a>
                         <input type="submit"  class="btnWrite" value="수정완료">
                     </div>
                 </form>

@@ -1,8 +1,7 @@
-package kr.jboard2.service.user;
+package kr.jboard2.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,38 +12,33 @@ import kr.jboard2.config.DBConfig;
 import kr.jboard2.config.SQL;
 import kr.jboard2.controller.CommonService;
 
-public class CheckEmailService implements CommonService {
+public class CommentService implements CommonService {
 
 	@Override
 	public String requestProc(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-		String email = req.getParameter("email");
 		
-		//1, 2단계
+		String parent  = req.getParameter("parent");
+		String comment = req.getParameter("comment");
+		String uid     = req.getParameter("uid");
+		String regip   = req.getRemoteAddr();
+		
 		Connection conn = DBConfig.getConnection();
 		
-		//3단계
-		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_CHECK_EMAIL);
-		psmt.setString(1, email);
+		PreparedStatement psmt = conn.prepareStatement(SQL.INSERT_COMMENT);
+		psmt.setString(1, parent);
+		psmt.setString(2, comment);
+		psmt.setString(3, uid);
+		psmt.setString(4, regip);
 		
-		//4단계
-		ResultSet rs = psmt.executeQuery();
+		int result = psmt.executeUpdate();
 		
-		//5단계
-		int result = 0;
-		
-		if(rs.next()) {
-			result = rs.getInt(1);
-		}
-		
-		//6단계
-		rs.close();
 		psmt.close();
 		conn.close();
 		
-		//gson라이브러리를 활용한 json 문자열 포맷 생성
 		JsonObject json = new JsonObject();
 		json.addProperty("result", result);
 		
 		return "json:"+json.toString();
 	}
+
 }

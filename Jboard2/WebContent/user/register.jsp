@@ -14,43 +14,46 @@
     <script src="/Jboard2/js/checkUid.js"></script>
     <script src="/Jboard2/js/checkNick.js"></script>
     <script src="/Jboard2/js/checkPass.js"></script>
+    <script src="/Jboard2/js/checkEmail.js"></script>
     <script>
     	// 유효성(validation) 검증
-    	$('.register > form').submit(function(){
-    		
-    		// 아이디 중복 여부 확인
-    		if(!isUidOk) {
-    			alert('아이디를 다시 확인 하십시오.')
-    			return false;
-    		}
-    		// 비밀번호 일치 여부 확인
-    		if(!isPassOk) {
-    			alert('비밀번호를 다시 확인 하십시오.')
-    			return false;
-    		}
-    		// 이름 한글 여부 확인
-    		if(false) {
-    			alert('이름을 다시 확인 하십시오.')
-    			return false;
-    		}
-    		// 별명 중복 여부 확인
-    		if(!isNickOk) {
-    			alert('별명을 다시 확인 하십시오.')
-    			return false;
-    		}
-    		// 이메일 중복 여부 확인
-    		if(false) {
-    			alert('이메일를 다시 확인 하십시오.')
-    			return false;
-    		}
-    		// 휴대폰 중복 여부 확인
-    		if(false) {
-    			alert('휴대폰을 다시 확인 하십시오.')
-    			return false;
-    		}
-    		
-    		// 최종 데이터 확인 완료
-    		return true;
+    	$(function(){
+    		$('.register > form').submit(function(){
+        		
+        		// 아이디 중복 여부 확인
+        		if(!isUidOk) {
+        			alert('아이디를 다시 확인 하십시오.')
+        			return false;
+        		}
+        		// 비밀번호 일치 여부 확인
+        		if(!isPassOk) {
+        			alert('비밀번호를 다시 확인 하십시오.')
+        			return false;
+        		}
+        		// 이름 한글 여부 확인
+        		if(false) {
+        			alert('이름을 다시 확인 하십시오.')
+        			return false;
+        		}
+        		// 별명 중복 여부 확인
+        		if(!isNickOk) {
+        			alert('별명을 다시 확인 하십시오.')
+        			return false;
+        		}
+        		// 이메일 중복 여부 확인
+        		if(!isEmailOk) {
+        			alert('이메일를 다시 확인 하십시오.')
+        			return false;
+        		}
+        		// 휴대폰 중복 여부 확인
+        		if(false) {
+        			alert('휴대폰을 다시 확인 하십시오.')
+        			return false;
+        		}
+        		
+        		// 최종 데이터 확인 완료
+        		return true;
+        	});
     	});
     </script>
 </head>
@@ -102,6 +105,7 @@
                         <td>E-Mail</td>
                         <td>
                             <input type="email" name="email" placeholder="이메일 입력"/>
+                            <span class="resultEmail"></span> 
                         </td>
                     </tr>
                     <tr>
