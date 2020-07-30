@@ -3,19 +3,19 @@
 
 <div id="sub" class="introduction">
     <div>
-        <img src="../img/sub_top_tit1.png" alt="INTRODUCTION"/>
+        <img src="/Farmstory2/img/sub_top_tit1.png" alt="INTRODUCTION"/>
     </div>
     <section>
         <aside>
-            <img src="../img/sub_aside_cate1_tit.png" alt="팜스토리 소개"/>
+            <img src="/Farmstory2/img/sub_aside_cate1_tit.png" alt="팜스토리 소개"/>
             <ul>
-                <li><a href="#">인사말</a></li>
-                <li class="on"><a href="#">찾아오시는길</a></li>
+                <li><a href="/Farmstory2/introduction/greeting.do">인사말</a></li>
+                <li class="on"><a href="/Farmstory2/introduction/direction.do">찾아오시는길</a></li>
             </ul>
         </aside>
         <article>
             <nav>
-                <img src="../img/sub_nav_tit_cate1_tit2.png" alt="찾아오시는길"/>
+                <img src="/Farmstory2/img/sub_nav_tit_cate1_tit2.png" alt="찾아오시는길"/>
                 <p>
                     HOME > 팜스토리소개 > <span>찾아오시는길</span>
                 </p>
@@ -30,5 +30,4 @@
         </article>
     </section>
 </div>
-
 <%@ include file="../_footer.jsp" %>

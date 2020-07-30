@@ -35,7 +35,7 @@ input, textarea {outline: none;}
     width: 60px;
     height: 110px;
     margin-left: 500px; 
-    background-image: url('../img/float_banner_bg.png');
+    background-image: url('/Farmstory2/img/float_banner_bg.png');
     background-repeat: no-repeat;
 }
 .rightbanner > img:nth-child(1) {
@@ -688,6 +688,10 @@ footer > p > span {
 }
 #board.view > .commentList > article > div {
     text-align: right;
+}
+
+#board.view > .commentList > article > div > .off {
+	display: none;
 }
 
 #board.view > .commentList > .empty {

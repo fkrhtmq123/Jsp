@@ -1,52 +1,51 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../_header.jsp" %>
-<%@ include file="./_aside_community.jsp" %>
-<body>
-    <div id="wrapper">
-        <section id="board" class="list">
-            <h3>글목록</h3>
-            <article>
-                <p>
-                    	${ sessionScope.member.nick }&nbsp;님 반갑습니다.
-                    <a href="/Jboard2/user/logout.do" class="logout">[로그아웃]</a>
-                </p>
-                <table border="0">
-                    <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>글쓴이</th>
-                        <th>날짜</th>
-                        <th>조회</th>
-                    </tr>
-                    <c:forEach var="article" items="${ articles }">
-                   		<tr>
-	                        <td>${ listCount = listCount - 1 }</td>
-	                        <td><a href="/Jboard2/view.do?seq=${ article.seq }">${ article.title }</a>&nbsp;[${ article.comment }]</td>
-	                        <td>${ article.nick }</td>
-	                        <td>${ article.rdate.substring(2, 10) }</td>
-	                        <td>${ article.hit }</td>
-                   		</tr>
-                    </c:forEach>
-                    
-                </table>
-            </article>
+<jsp:include page="./_aside_${group}.jsp"/>
+				<section id="board" class="list">
+				    <h3>글목록</h3>
+				    <article>
+				        <table border="0">
+				            <tr>
+				                <th>번호</th>
+				                <th>제목</th>
+				                <th>글쓴이</th>
+				                <th>날짜</th>
+				                <th>조회</th>
+				            </tr>
+				            <c:forEach var="vo" items="${articles}">
+					            <tr>
+					                <td>${listCount}</td>
+					                <td><a href="/Farmstory2/board/view.do?group=${ requestScope.group }&cate=${ cate }&seq=${ vo.seq }">${vo.title}</a>&nbsp;[${vo.comment}]</td>
+					                <td>${vo.nick}</td>
+					                <td>${vo.rdate}</td>
+					                <td>${vo.hit}</td>
+					            </tr>
+					            <c:set var="listCount" value="${listCount = listCount - 1}"/>
+				            </c:forEach>
+				            
+				        </table>
+				    </article>
+				
+				    <!-- 페이지 네비게이션 -->
+				    <div class="paging">
+				        <a href="/Farmstory2/board/list.do?group=${group}&cate=${cate}&pg=${groupStart-1}" class="prev">이전</a>
+				        <c:forEach var="i" begin="${groupStart}" end="${groupEnd}">
+				       		<a href="/Farmstory2/board/list.do?group=${group}&cate=${cate}&pg=${i}" class="num ${currentPage==i ? 'current':''}">${i}</a>
+				       	</c:forEach>
+				        <a href="/Farmstory2/board/list.do?group=${group}&cate=${cate}&pg=${groupEnd+1}" class="next">다음</a>
+				    </div>
+				
+				    <!-- 글쓰기 버튼 -->
+				    <a href="/Farmstory2/board/write.do?group=${group}&cate=${cate}" class="btnWrite">글쓰기</a>
+				
+				</section>
 
-            <!-- 페이지 네비게이션 -->
-            <div class="paging">
-            	<c:if test="${ groupStart > 1 }">
-                	<a href="/Jboard2/list.do?pg=${ groupStart - 1 }" class="prev">이전</a>
-                </c:if>
-                
-                <c:forEach var="i" begin="${ groupStart }" end="${ groupEnd }">
-                	<a href="/Jboard2/list.do?pg=${ i }" class="num ${ currentPage==i ? 'current':'' }">${ i }</a>
-                </c:forEach>   
-                <c:if test="${ groupEnd < lastPage }">
-                	<a href="/Jboard2/list.do?pg=${ groupEnd + 1 }" class="next">다음</a>
-                </c:if>
+			<!-- 컨텐츠 내용 끝 -->
             </div>
 
-            <!-- 글쓰기 버튼 -->
-            <a href="/Jboard2/write.do" class="btnWrite">글쓰기</a>
+        </article>
+    </section>
+</div>
 
-        </section>
 <%@ include file="../_footer.jsp" %>

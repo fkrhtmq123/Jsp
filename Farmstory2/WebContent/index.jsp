@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="./_header.jsp" %>
 <main>
     <div class="slider">
@@ -24,96 +25,42 @@
 
     <div class="latest">
         <div>
-            <img src="/Farmstory2/img/main_latest1_tit.png" alt="텃밭가꾸기"/>
-            <img src="/Farmstory2/img/main_latest1_img.jpg" alt="이미지1">
+            <img src="./img/main_latest1_tit.png" alt="텃밭가꾸기"/>
+            <img src="./img/main_latest1_img.jpg" alt="이미지1">
             <table border="0">
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
+            	<c:forEach var="article1" items="${ latest1 }">
+	                <tr>
+	                    <td>></td>
+	                    <td><a href="/Farmstory2/board/view.do?group=croptalk&cate=croptalk&seq=${ article1.seq }">${ article1.title }</a></td>
+	                    <td>${ article1.rdate }</td>
+	                </tr>
+                </c:forEach>
             </table>
         </div>
         <div>
-            <img src="/Farmstory2/img/main_latest2_tit.png" alt="귀농학교"/>
-            <img src="/Farmstory2/img/main_latest2_img.jpg" alt="이미지2">
+            <img src="./img/main_latest2_tit.png" alt="귀농학교"/>
+            <img src="./img/main_latest2_img.jpg" alt="이미지2">
             <table border="0">
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
+                <c:forEach var="article2" items="${ latest2 }">
+	                <tr>
+	                    <td>></td>
+	                    <td><a href="/Farmstory2/board/view.do?group=croptalk&cate=croptalk&seq=${ article2.seq }">${ article2.title }</a></td>
+	                    <td>${ article2.rdate }</td>
+	                </tr>
+                </c:forEach>
             </table>
         </div>
         <div>
-            <img src="/Farmstory2/img/main_latest3_tit.png" alt="농작물이야기"/>
-            <img src="/Farmstory2/img/main_latest3_img.jpg" alt="이미지3">
+            <img src="./img/main_latest3_tit.png" alt="농작물이야기"/>
+            <img src="./img/main_latest3_img.jpg" alt="이미지3">
             <table border="0">
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
-                <tr>
-                    <td>></td>
-                    <td>안녕하세요. 반갑습니다.</td>
-                    <td>20-05-14</td>
-                </tr>
+                <c:forEach var="article3" items="${ latest3 }">
+	                <tr>
+	                    <td>></td>
+	                    <td><a href="/Farmstory2/board/view.do?group=croptalk&cate=croptalk&seq=${ article3.seq }">${ article3.title }</a></td>
+	                    <td>${ article3.rdate }</td>
+	                </tr>
+                </c:forEach>
             </table>
         </div>                
     </div>
