@@ -29,9 +29,11 @@
             </tr>
         </table>
         <div>
-            <a href="#" class="btnDelete">삭제</a>
-            <a href="#" class="btnModify">수정</a>
-            <a href="/Farmstory2/board/list.do?group=${group}&cate=${cate}" class="btnList">목록</a>
+       		<c:if test="${ sessionScope.member.uid == vo.uid }">
+	            <a href="#" class="btnDelete">삭제</a>
+	            <a href="#" class="btnModify">수정</a>
+            </c:if>
+            	<a href="/Farmstory2/board/list.do?group=${group}&cate=${cate}" class="btnList">목록</a>
         </div>
 
         <script>

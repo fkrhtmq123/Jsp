@@ -2,7 +2,7 @@ package kr.co.jboard1.config;
 
 public class SQL {
 	
-	// È¸¿ø °ü·Ã
+	// íšŒì› ê´€ë ¨
 	public final static String SELECT_LOGIN = "SELECT * FROM `JBOARD_MEMBER` "
 												+ "WHERE `uid`=? AND `pass`=PASSWORD(?)";
 	
@@ -34,7 +34,7 @@ public class SQL {
 	public final static String SELECT_CHECK_EMAIL = "SELECT COUNT(`email`) FROM `JBOARD_MEMBER` "
 													+ "WHERE `email`=?";
 		
-	// °Ô½Ã¹® °ü·Ã
+	// ê²Œì‹œíŒ ê´€ë ¨
 	public final static String SELECT_TOTAL_COUNT = "SELECT COUNT(`seq`) FROM `JBOARD_ARTICLE` "
 													+ "WHERE `parent`=0";
 	

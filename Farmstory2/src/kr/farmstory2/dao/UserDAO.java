@@ -94,4 +94,6 @@ public class UserDAO {
 		return vo;
 	}
 
+	public void checklogin() throws Exception {}
+
 }

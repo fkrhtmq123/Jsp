@@ -4,8 +4,8 @@ $(function(){
 	// form의 전송 버튼(submit)를 클릭하면
 	form.submit(function(){
 		if(isUidOk == false) {
- 		alert('아이디를 확인하세요.');
- 		return false;
+	 		alert('아이디를 확인하세요.');
+	 		return false;
 		}
  	
 		if(!isPassOk) {

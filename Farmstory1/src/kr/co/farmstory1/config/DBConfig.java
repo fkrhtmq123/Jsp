@@ -11,7 +11,7 @@ public class DBConfig {
 	//private static final String PASS = "1234";
 	
 	// 개발용
-	private static final String HOST = "jdbc:mysql://192.168.44.46:3306/kdw";
+	private static final String HOST = "jdbc:mysql://192.168.50.82:3306/kdw";
 	private static final String USER = "kdw";
 	private static final String PASS = "1234";
 	

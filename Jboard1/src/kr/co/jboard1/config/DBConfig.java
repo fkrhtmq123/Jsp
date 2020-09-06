@@ -5,21 +5,21 @@ import java.sql.DriverManager;
 
 public class DBConfig {
 	
-	// DBÁ¤º¸ - ¹èÆ÷¿ë
+	// DBï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	// public static final String HOST = "jdbc:mysql://kimdongwook.pe.kr:3306/kdw";
 	// public static final String USER= "kdw";
 	// public static final String PASS = "";
 	
-	// DBÁ¤º¸ - °³¹ß¿ë
-	public static final String HOST = "jdbc:mysql://192.168.44.46:3306/kdw";
+	// DBï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ß¿ï¿½
+	public static final String HOST = "jdbc:mysql://192.168.50.82:3306/kdw";
 	public static final String USER = "kdw";
 	public static final String PASS = "1234";
 	
 	public static Connection getConnection() throws Exception {
-		// 1´Ü°è
+		// 1ï¿½Ü°ï¿½
 		Class.forName("com.mysql.jdbc.Driver");
 		
-		// 2´Ü°è
+		// 2ï¿½Ü°ï¿½
 		Connection conn = DriverManager.getConnection(HOST, USER, PASS);
 		return conn;
 	}

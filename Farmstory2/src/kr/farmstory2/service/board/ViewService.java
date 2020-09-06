@@ -19,7 +19,9 @@ public class ViewService implements CommonService {
 		String seq   = req.getParameter("seq");
 		
 		BoardDAO dao = BoardDAO.getInstance();
+		
 		ArticleVO vo = dao.getArticle(seq);
+		
 		List<ArticleVO> comments = dao.getComments(seq);
 		
 		req.setAttribute("group", group);
