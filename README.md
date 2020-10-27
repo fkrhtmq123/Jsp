@@ -76,7 +76,7 @@
   Jboard2와 Farmstory2에 적용
 ```
 ## Ch19 MVC 모델2
-##Farmstroy1
-##Farmstroy2
-##Jboard1
-##Jboard2
+## Farmstroy1
+## Farmstroy2
+## Jboard1
+## Jboard2
